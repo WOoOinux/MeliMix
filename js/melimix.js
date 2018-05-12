@@ -34,7 +34,7 @@ $(document).ready(function(){
             // On génère les 16 lettres pour jouer
             for (var i = 0; i <= 15; i++ ) {
                 // On sélectionne un chiffre entre 0 et 25
-                var randomNumber = Math.floor(Math.random() * 5 + 1);
+                var randomNumber = Math.floor(Math.random() * 5);
                 // On sélectionne la lettre de chaque dé correspondant au chiffre généré aléatoirement
                 generatedLetters.push(dices[i][randomNumber]);
             }
@@ -53,7 +53,7 @@ $(document).ready(function(){
              * 2 = 180 degrés
              * 3 = 270 degrés
              */
-            var randomDegrees = Math.floor(Math.random() * 3 + 1);
+            var randomDegrees = Math.floor(Math.random() * 3);
             var degrees;
             
             if (randomDegrees == 0) {

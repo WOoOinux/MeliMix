@@ -91,6 +91,10 @@ table {
 	color: #333333;
 }
 
+.deg0 {
+	transform: rotate(0deg);
+}
+
 .deg90 {
 	transform: rotate(90deg);
 }
