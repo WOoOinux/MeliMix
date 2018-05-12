@@ -42,9 +42,39 @@ $(document).ready(function(){
             return generatedLetters;
         }
         
+        // On génère les 16 dés
         generatedLetters = generateLetters();
+        
         for (var i = 0, c = generatedLetters.length; i < c; i++) {
-            var div = "<div class='letter'><span>" + generatedLetters[i] + "</span></div>";
+            /*
+             * On sélectionne l'orientation du dé :
+             * O = 0 degré
+             * 1 = 90 degrés
+             * 2 = 180 degrés
+             * 3 = 270 degrés
+             */
+            var randomDegrees = Math.floor(Math.random() * 3 + 1);
+            var degrees;
+            
+            if (randomDegrees == 0) {
+                degrees = "deg0";
+            } else if (randomDegrees == 1) {
+                degrees = "deg90";
+            } else if (randomDegrees == 2) {
+                degrees = "deg180";
+            } else if (randomDegrees == 3) {
+                degrees = "deg270";
+            }
+            
+            // On ajoute un détrompeur sur certaines lettres
+            var lookAlike;
+            if (generatedLetters[i] == "M" || generatedLetters[i] == "W" || generatedLetters[i] == "N" || generatedLetters[i] == "Z") {
+                lookAlike = "look-alike";
+            } else {
+                lookAlike = "";
+            }
+            
+            var div = "<div class='letter " + degrees + "'><span class='" + lookAlike + "'>" + generatedLetters[i] + "</span></div>";
             $(".letters").append(div);
         }
         
